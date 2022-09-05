@@ -30,7 +30,6 @@ import classnames, {
   visibility,
   width,
 } from 'classnames/tailwind'
-import useUrlParams from 'hooks/useUrlParams'
 
 const arrowContainer = classnames(
   display('flex'),
