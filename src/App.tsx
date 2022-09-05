@@ -61,6 +61,10 @@ export default function () {
                   element={<LazyComponent lazyImported={<Main />} />}
                 />
                 <Route
+                  path="/app/:category"
+                  element={<LazyComponent lazyImported={<Main />} />}
+                />
+                <Route
                   path="/terms"
                   element={<LazyComponent lazyImported={<Terms />} />}
                 />

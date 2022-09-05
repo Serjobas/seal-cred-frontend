@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import { useSnapshot } from 'valtio'
+import { zIndex } from 'classnames/tailwind'
 import Card from 'components/ui/Card'
 import CardContainer from 'components/proofs/CardContainer'
 import ConnectAccount from 'components/badges/ConnectAccount'
@@ -21,16 +22,24 @@ export default function () {
   const { account } = useSnapshot(WalletStore)
 
   return (
-    <CardContainer>
-      <Card shadow paddingType="normal" color="secondary" useAppStyles nospace>
-        {account ? (
-          <Suspense fallback={<LoadingCard />}>
-            <BadgesSuspended />
-          </Suspense>
-        ) : (
-          <ConnectAccount />
-        )}
-      </Card>
-    </CardContainer>
+    <div className={zIndex('z-10')}>
+      <CardContainer>
+        <Card
+          shadow
+          paddingType="normal"
+          color="secondary"
+          useAppStyles
+          nospace
+        >
+          {account ? (
+            <Suspense fallback={<LoadingCard />}>
+              <BadgesSuspended />
+            </Suspense>
+          ) : (
+            <ConnectAccount />
+          )}
+        </Card>
+      </CardContainer>
+    </div>
   )
 }
